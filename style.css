@@ -1,0 +1,823 @@
+
+/*Velolab Version 6.1  DATE: 18.11.2024
+Added collected client quotes from current and past clients that have been trained by Velolab. 
+These quotes are to be used in place of previous placeholder quotes.*/
+
+
+/*--------------------------------------------- CSS INDEX ---------------------------------------------*/
+
+/* 1. General Styling
+    2. NAVIGATION
+    3. Page 1 - Our Mission
+    4. Page 2 - Who Are We
+    5. Page 3 - What Our Clients Say
+    6. Page 4 - Testimonials
+    7. Page 5 - Contact Us
+    8. FOOTER
+
+/*--------------------------------------------- Google Fonts ---------------------------------------------*/
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/*--------------------------------------------- General Styling ---------------------------------------------*/
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/*---------------------------------------------Body Styling --------------------------------------------- */
+
+body {
+    font-family: "Montserrat", sans-serif;
+    background-color: black;
+    color: white;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+p {
+    color: white;
+}
+
+.logo {
+    color: #ff6900;
+    font-size: 2rem;
+}
+
+.logo:hover{
+    cursor: default;
+}
+
+/*--------------------------------------------- NAVIGATION Transitions --------------------------------------------- */
+
+a, .btn{
+    transition: all 300ms ease;
+}
+
+nav, .nav-links {
+    display: flex;
+    padding-top: 10px;
+}
+
+nav{
+    justify-content: space-around;
+    align-items: center;
+    z-index: 99;
+}
+
+.nav-links {
+    gap: 2rem;
+    list-style: none;
+    font-size: 1rem;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover{
+    color:  #ff6900;
+}
+
+.login-btn {
+    position: inline;
+    font-size: 20px;
+    text-decoration: none;
+    padding: 5px 8px;
+    background-color: #ff6900; 
+    color: rgb(0, 0, 0); 
+    border-radius: 50px;
+    transition: background-color 300ms ease;
+}
+    
+.login-btn:hover {
+    background-color: black;
+    color: #ff6900;
+}
+    
+
+/*--------------------------------------------- HAMBURGER MENU ---------------------------------------------*/
+
+#hamburger-nav {
+    display: none; /* Show this only on mobile */
+}
+
+.hamburger-menu {
+    position: relative;
+    display: inline-block;
+    padding-left: 20px; /* Adjusted padding */
+}
+
+.hamburger-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 24px;
+    width: 30px;
+    cursor: pointer;
+}
+
+.hamburger-icon span {
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    transition: all 0.3s ease-in-out; /* Added 's' for seconds */
+}
+
+.menu-links {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 0; /* Align to the right */
+    padding: 0;
+    text-align: right;
+    background-color: black;
+    width: 100%;
+    list-style: none;
+    z-index: 10;
+}
+
+.menu-links.open {
+    display: block;
+}
+
+.menu-links a {
+    display: block;
+    padding: 20px;
+    color: white;
+    text-decoration: none; /* Added for better UX */
+}
+
+.menu-links a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Hover effect */
+}
+
+  /*--------------------------------------------- Open hamburger animation ---------------------------------------------*/
+
+  .hamburger-icon.open span:first-child{
+    transform: rotate(45deg) translate(10px, 5px);
+  }
+
+  .hamburger-icon.open span:nth-child(2){
+    opacity: 0;
+  }
+
+  .hamburger-icon.open span:last-child{
+    transform: rotate(-45deg) translate(10px, -5px);
+  }
+
+/*--------------------------------------------- Close hamburger animation ---------------------------------------------*/
+
+  .hamburger-icon span:first-child {
+    transform: none;
+  }
+
+  .hamburger-icon span:first-child {
+    transform: none;
+  }
+
+  .hamburger-icon span:first-child {
+    transform: none;
+  }
+
+
+/*--------------------------------------------- Gradient Overlay for right ---------------------------------------------*/
+
+.gradient-overlay-right {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));
+    z-index: 1; 
+}
+
+/*--------------------------------------------- Gradient Overlay for left ---------------------------------------------*/
+
+.gradient-overlay-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to left, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));
+    z-index: 1; 
+}
+
+.hero_pic_container, .mission_pic_container, .who-are-we {
+    position: relative; 
+    overflow: hidden; 
+    height: 100vh; 
+}
+
+
+.hero_pic_container img, .mission_pic_container img, .who-are-we img {
+    position: relative; 
+    z-index: 0; 
+}
+
+
+.text_page1, .text_page2, .text_page2 h1, .who-are-we h1 {
+    position: relative; 
+    z-index: 2; 
+}
+
+/*--------------------------------------------- Page 1 - Hero Page ---------------------------------------------*/
+
+.hero_pic_container {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    position: relative;
+    height: 100vh;
+    text-align: left;
+    padding: 20px;
+}
+
+.hero_pic_container img {
+    max-width: 80%;
+    object-fit: cover;
+    padding: 10px;
+    max-height: 100%;
+    align-items: right;
+    z-index: 0; 
+    border-radius: 50px;
+}
+
+.text_page1 {
+    position: absolute; 
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    color: white;
+    z-index: 2; 
+}
+
+.text_page1 h1, h2 {
+    margin: 0;
+    padding: 10px; 
+}
+
+.text_page1 h1{
+    color: #ff6900;
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.text_page1 h2 {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.btn-pg1 {
+    position: absolute;
+    margin-top: 25px;
+    font-size: 20px;
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 10px;
+    background-color: #ff6900; 
+    color: rgb(0, 0, 0); 
+    border-radius: 50px;
+    transition: background-color 300ms ease;
+}
+
+.btn-pg1:hover {
+    background-color: black;
+    border-color: #ff6900;;
+}
+
+/*--------------------------------------------- Page 2 - Our Mission--------------------------------------------- */
+
+.mission_pic_container {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    position: relative;
+    height: 100vh;
+    text-align: left;
+    padding: 20px;
+}
+
+.mission_pic_container img {
+    max-width: 70%;
+    object-fit: cover;
+    padding: 1rem;
+    max-height: 100%;
+    align-items: right;
+    z-index: -1; 
+    border-radius: 50px;
+}
+
+.text_page2 {
+    position: absolute; 
+    top: 50%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+    color: white;
+    z-index: 2; 
+}
+
+.text_page2 h1 {
+    color: #ff6900;
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.text_page2 p {
+    font-size: 1rem;
+    text-align: justify;
+}
+
+/*--------------------------------------------- Page 3 - Who Are We--------------------------------------------- */
+
+.about-us {
+    padding: 20px 0;
+    background-color: #0b0b0b;
+    color: #302f2f;
+    text-align: justify;
+    word-spacing: 3px;
+}
+
+.inner {
+    max-width: 1200px;
+    margin: auto;
+    overflow: hidden;
+    padding: 0 20px;
+}
+
+.inner h1 {
+    color: #ff6900;
+    font-size: 3rem;
+    margin: 0;
+    padding: 10px;
+    top: 5%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.border{
+    width: 160px;
+    height: 5px;
+    background-color: #ffffff;
+    margin: 26px auto;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.col{
+    flex: 33.33%;
+    max-width: 33.33%;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+.col:hover {
+    transform: translateY(-50px);
+    transition: 0.2s ease-in-out;
+}
+
+.about-us-text {
+    background-color: #111111f0;
+    padding: 15px;
+    border-radius: 30px;
+}
+
+.about-us img {
+    width: 100%;
+    height: 300px;
+    border-radius: 30px;
+}
+
+.about-us-text p {
+    font-size: 15px;
+    color: #ffffff;
+    margin: 0;
+}
+
+.coach-name {
+    font-size: 25px;
+    text-transform: uppercase;
+    margin: 20px 0;
+    color: #ff6900;
+}
+
+/*--------------------------------------------- Page 4 - Testimonials--------------------------------------------- */
+
+.testimonials {
+    padding: 20px 0;
+    background-color: #1b1b1b;
+    color: #434343;
+    text-align: center;
+}
+
+.testimonial {
+    background-color: #fff;
+    padding: 30px;
+}
+
+.testimonial img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.name {
+    font-size: 20px;
+    text-transform: uppercase;
+    margin: 20px 0;
+}
+
+.testimonial p {
+    font-size: 14px;
+    word-spacing: 1px;
+    color: #282727;
+    margin: 0;
+}
+
+/*--------------------------------------------- Page 5 - Coaching Options--------------------------------------------- */
+
+.services {
+    padding: 20px 0;
+    background-color: #1b1b1b;
+    color: #434343;
+    text-align: center;
+}
+
+.border{
+    width: 160px;
+    height: 5px;
+    background-color: #ffffff;
+    margin: 26px auto;
+}
+
+.service-col{
+    flex: 50%;
+    max-width: 80%;
+    box-sizing: border-box;
+    padding: 15px;
+}
+
+.service-col:hover {
+    transform: translateY(-50px);
+    transition: 0.2s ease-in-out;
+}
+
+.service {
+    background-color: #cec8c8;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.service img {
+    width: 60%;
+    object-fit: cover;
+    height: 300px;
+    border-radius: 30px;
+}
+
+.service-title h3{
+    font-size: 20px;
+    text-transform: uppercase;
+    color: #ff6900;
+    margin: 20px 0;
+}
+
+.service ul {
+    font-size: 20px;
+    color: #282727;
+    display: grid;
+    gap: 20px;
+    padding-left: 40px;
+    text-align: left;
+    list-style-type: square;
+}
+
+/*--------------------------------------------- Page 6 - Pricing--------------------------------------------- */
+
+.outter h4 {
+   color: #ff6900;
+    font-size: 2rem;
+    margin: 0;
+    padding: 10px;
+    top: 5%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.outter {
+    max-width: 1200px;
+    margin: auto;
+    overflow: hidden;
+    padding: 0 40px;
+}
+
+.outter p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    text-align: justify;
+    padding: 2;
+}
+
+.btn-pricing {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 2rem;
+    border-radius: 50px;
+    z-index: 3;
+    transition: 0.3s ease;
+    margin-bottom: 2rem;
+}
+
+
+.btn-pricing:hover {
+    color: #ff6900;
+}
+
+/*--------------------------------------------- Page 7 - One Off Offers--------------------------------------------- */
+
+.one-off-offers {
+    max-width: 1200px;
+    margin: auto;
+    overflow: hidden;
+    padding: 0 20px;
+}
+
+
+.one-off-offers h4 {
+    color: #ff6900;
+    font-size: 1.2rem;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.one-off-offers p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    text-align: justify;
+    padding: 2;
+}
+
+/*--------------------------------------------- Page 8 - Ready to Ride---------------------------------------------*/
+
+.ready_to_ride {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 100vh;  
+    text-align: center;
+}
+
+.video_container {
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.text_ready_to_ride h1 {
+    color: #ff6900;
+    font-size: 4rem;
+    padding: 2px;
+}
+
+.text_ready_to_ride h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    padding: 2px;
+}
+
+.btn-ride {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 2rem;
+    border-radius: 50px;
+    z-index: 3;
+    transition: 0.3s ease;
+    margin-bottom: 2rem;
+}
+
+
+/*--------------------------------------------- Page 9 - Contact Us---------------------------------------------*/
+
+.contact-us {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 100vh;  
+    text-align: center;
+}
+
+.contact-col {
+    flex: 1; /* Use flex: 1 for equal distribution */
+    max-width: 700px; /* Set a max width for better alignment */
+    box-sizing: border-box;
+    padding: 15px;
+    text-align: center;
+}
+
+/* Inner title styling */
+.inner h1 {
+    color: #ff6900;
+    font-size: 3rem;
+    padding: 2px;
+    margin: 20px 0 10px; /* Simplified margin */
+}
+
+/* Contact info styling */
+.contact-info h5 {
+    color: #ff6900;
+    font-size: 1.5rem;
+    padding: 2px;
+    margin-bottom: 10px;
+}
+
+.contact-info h6 {
+    font-size: 1rem;
+    padding: 4px;
+    margin-bottom: 10px;
+}
+
+.contact-info p {
+    padding: 2px;
+    margin-bottom: 10px;
+}
+
+/* Button styling */
+.btn-email {
+    background-color: black;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-email p {
+    color: #ff6900;
+    padding: 2px;
+    font-size: 15px;
+}
+
+.btn-email p:hover {
+    color: #ffffff;
+}
+
+
+/*--------------------------------------------- Map ---------------------------------------------*/
+
+#map {
+    height: 10rem;
+    padding: 1px;
+    margin: 0 auto; /* Center the map horizontally using margin */
+    width: 100%;
+}
+
+
+iframe {
+    width: 100%;
+    height: 100%;
+}
+
+
+/*--------------------------------------------- Footer ---------------------------------------------*/
+
+footer {
+    background-color: rgba(0, 0, 0, 0.67); /* Slightly more readable */
+    color: white;
+    padding: 10px;
+    display: flex;
+    flex-direction: column; /* Change to column to stack items */
+    align-items: center; /* Center items horizontally */
+}
+
+.footer-logo {
+    color: #ff6900;
+    padding: 5px;
+    font-size: 1.2rem;
+    pointer-events: none;
+    text-align: center;
+    text-transform: uppercase;
+    z-index: 4;
+}
+
+.footer-text {
+    font-size: 10px;
+    text-align: center; /* Center text */
+}
+
+.footer-list {
+    list-style: none;
+    padding: 10px;
+    margin: 10px 0; /* Add margin for spacing */
+    text-align: center;
+}
+
+.footer-list li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.footer-list li:last-child {
+    margin-right: 0;
+}
+
+.footer-icons {
+    margin-top: 10px;
+}
+
+.footer-icons ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Horizontal alignment */
+    justify-content: center; /* Center icons */
+}
+
+.footer-icons li {
+    margin-right: 10px;
+    padding: 5px;
+}
+
+.footer-icons a {
+    color: white;
+    font-size: 24px;
+}
+
+.footer-icons a:hover {
+    color: #ff6900;
+}
+
+.footer-icons a:last-child {
+    margin-right: 0;
+}
+
+.footer-text p {
+    padding: 2px 0 1px 0;
+    letter-spacing: 2px;
+}
+
+
+.footer-text a {
+    color: white;
+}
+
+.footer-text a:hover {
+    color: #ff6900;
+}
+
+
+/*--------------------------------------------- BACK TO TOP BUTTON ---------------------------------------------*/
+
+.top {
+    text-decoration: none;
+    padding: 13px;
+    border: 2px solid rgb(0, 0, 0);
+    color: black;
+    background-color: #ff6900;
+    border-radius: 50px;
+    position: fixed;
+    margin-top: 100vh;
+    bottom: 40px;
+    right: 2rem;
+    transition: 0.3s ease; /* Fixed transition */
+    z-index: 3;
+}
+
+.top:hover{
+    background-color: black;
+    border-color: #ff6900;;
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.top img {
+    width: 20px;
+    vertical-align: middle;
+}
