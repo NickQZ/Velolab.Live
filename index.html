@@ -1,8 +1,6 @@
 <!DOCTYPE html>
-
-<!--/*Velolab Version 6.1  DATE: 18.11.2024
-Added collected client quotes from current and past clients that have been trained by Velolab. 
-These quotes are to be used in place of previous placeholder quotes.*/
+<!-- Velolab Version 6.2  DATE: 18.11.2024
+Added Rest of client quotes onto a scroller bar with animated transition and a small amount of JS.*/
 -->
 
 <html>
@@ -123,17 +121,37 @@ These quotes are to be used in place of previous placeholder quotes.*/
         <!--What Our Clients Say-->
         <section id="what-our-clients-say">
             <div class="testimonials">
-                
                 <div class="inner">
                     <h1>What Our Clients Say</h1>
-
                     <div class="border"></div>
-
-                    <div class="row">
-                        <div class="col">
+                    <div class="slide">
+                        <div class="testimonial-container">
                             <div class="testimonial">
-                                <div class="name">Johnathan Nelson</div>
+                                <div class="name">Johnathan</div>
                                 <p><em>"Velolab has been instrumental in helping me achieve my cycling goals since 2013. Their professionalism and expertise set them apart, and I would confidently recommend Velolab to cyclists of all levels, from beginners to elites."</em></p>
+                            </div>
+                            <div class="testimonial">
+                                <div class="name">Paul</div>
+                                <p><em>"Mike has been a very supportive and knowledgeable coach for me. He has coached me to two National age group titles and a number of placings.<br><br>In 2022 we set a programme that enabled me to complete a Tour of Southland. Mike is an accomplished coach who understands the challenges that athletes who have jobs, families and other commitments face."</em></p>
+                            </div>
+                            <div class="testimonial">
+                                <div class="name">Alan</div>
+                                <p><em>"I have been coached by the Velolab team for several years, during this time I have achieved more than I could have hoped for, the Velolab team deliver in all aspects of coaching, coupled with excellent performance feedback, motivation, and personal accountability"</em></p>
+                            </div>
+                        </div>
+                        <!-- Duplicate containers for infinite effect -->
+                        <div class="testimonial-container">
+                            <div class="testimonial">
+                                <div class="name">Johnathan</div>
+                                <p><em>"Velolab has been instrumental in helping me achieve my cycling goals since 2013. Their professionalism and expertise set them apart, and I would confidently recommend Velolab to cyclists of all levels, from beginners to elites."</em></p>
+                            </div>
+                            <div class="testimonial">
+                                <div class="name">Paul</div>
+                                <p><em>"Mike has been a very supportive and knowledgeable coach for me. He has coached me to two National age group titles and a number of placings.<br><br>In 2022 we set a programme that enabled me to complete a Tour of Southland. Mike is an accomplished coach who understands the challenges that athletes who have jobs, families and other commitments face."</em></p>
+                            </div>
+                            <div class="testimonial">
+                                <div class="name">Alan</div>
+                                <p><em>"I have been coached by the Velolab team for several years, during this time I have achieved more than I could have hoped for, the Velolab team deliver in all aspects of coaching, coupled with excellent performance feedback, motivation, and personal accountability"</em></p>
                             </div>
                         </div>
                     </div>
@@ -192,8 +210,6 @@ These quotes are to be used in place of previous placeholder quotes.*/
                         <p><i>Minimum Membership Length: 4 Months</i></p>
                         <a href="#contact-us" class="btn-pricing">Join Now</a>
                     </div>
-
-
                 </section>
 
         <!--Ready to Ride?-->
@@ -299,7 +315,7 @@ These quotes are to be used in place of previous placeholder quotes.*/
             document.querySelector('.hamburger-menu').addEventListener('click', () => {
                 menu.classList.toggle("open");
                 icon.classList.toggle("open");
-            });
+            });  
 
             // Back to Top Button
             const button = document.getElementById('back-to-top');
@@ -328,6 +344,15 @@ These quotes are to be used in place of previous placeholder quotes.*/
                 event.preventDefault();
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             };
+            // Infinite Scroll Animation for Testimonials
+            const slide = document.querySelector('.slide');
+            const testimonialContainers = document.querySelectorAll('.testimonial-container');
+
+            // Clone the content to create the illusion of infinity
+            testimonialContainers.forEach(container => {
+                const clonedContainer = container.cloneNode(true);
+                slide.appendChild(clonedContainer);
+            });
         });
         </script> 
         
